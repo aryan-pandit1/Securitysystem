@@ -1,0 +1,149 @@
+.transactions-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #050d18;
+  color: white;
+}
+
+.transactions-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transactions-header h1 {
+  font-size: 26px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background: #0a1628;
+  border: 1px solid #16263a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  border-color: #00d9a6;
+}
+
+.search-box {
+  margin-top: 20px;
+}
+
+.search-box input {
+  width: 100%;
+  background: #0a1628;
+  border: 1px solid #16263a;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.table-wrapper {
+  margin-top: 20px;
+  background: #0a1628;
+  border: 1px solid #16263a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #091322;
+}
+
+th {
+  color: #8fa4c7;
+  text-align: left;
+  padding: 16px;
+  font-size: 14px;
+}
+
+td {
+  padding: 16px;
+  border-top: 1px solid #16263a;
+}
+
+tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.txn-id {
+  color: #00d9a6;
+  font-weight: 600;
+}
+
+.risk-high {
+  color: #ff5252;
+  font-weight: bold;
+}
+
+.risk-medium {
+  color: #ffb020;
+  font-weight: bold;
+}
+
+.risk-low {
+  color: #00d9a6;
+  font-weight: bold;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.flagged {
+  background: rgba(255, 82, 82, 0.15);
+  color: #ff5252;
+}
+
+.review {
+  background: rgba(255, 176, 32, 0.15);
+  color: #ffb020;
+}
+
+.clear {
+  background: rgba(0, 217, 166, 0.15);
+  color: #00d9a6;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+}
+
+.pagination button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #16263a;
+  background: #091322;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.active-page {
+  background: #00d9a6 !important;
+  color: black !important;
+}

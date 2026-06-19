@@ -1,0 +1,164 @@
+.dashboard-layout {
+  display: flex;
+  background: #050d18;
+  min-height: 100vh;
+  color: white;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 20px;
+}
+
+/* HEADER */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #00d9a6;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+/* CARDS */
+
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.card {
+  background: #0a1628;
+  border: 1px solid #16263a;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.card h4 {
+  color: #8fa4c7;
+  margin-bottom: 10px;
+}
+
+.score {
+  font-size: 42px;
+  color: #ff5252;
+}
+
+.number {
+  font-size: 34px;
+  font-weight: bold;
+}
+
+.success {
+  color: #00d9a6;
+}
+
+.danger {
+  color: #ff5252;
+}
+
+/* ANALYTICS */
+
+.analytics {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.chart-card {
+  background: #0a1628;
+  border: 1px solid #16263a;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.fake-chart {
+  height: 250px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px dashed #2c425e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8fa4c7;
+}
+
+.donut-chart {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 25px solid orange;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+/* TABLE */
+
+.table-card {
+  margin-top: 20px;
+  background: #0a1628;
+  border: 1px solid #16263a;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+th {
+  color: #8fa4c7;
+  text-align: left;
+  padding: 12px;
+}
+
+td {
+  padding: 12px;
+  border-top: 1px solid #16263a;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.new {
+  background: rgba(255, 82, 82, 0.15);
+  color: #ff5252;
+}
+
+.investigating {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+}
