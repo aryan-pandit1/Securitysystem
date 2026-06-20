@@ -8,6 +8,19 @@ import TransactionDetails from "./pages/TransactionDetails";
 import Alerts from "./components/Alerts";
 
 function App() {
+
+  const logout = () => {
+
+  localStorage.removeItem(
+    "access"
+  );
+
+  localStorage.removeItem(
+    "refresh"
+  );
+
+  window.location.href = "/";
+};
   return (
     <BrowserRouter>
       <Routes>
