@@ -1,12 +1,53 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import "./TransactionDetails.css";
+import API from "../api/axios";
 
 const TransactionDetails = () => {
+
+  useEffect(() => {
+
+  const fetchTransaction =
+    async () => {
+
+      try {
+
+        const transactionId =
+          id.replace("TXN-", "");
+
+        const response =
+          await API.get(
+            `transactions/${transactionId}/`
+          );
+
+        setTransaction(
+          response.data
+        );
+
+        setStatus(
+          response.data.status
+        );
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+      }
+    };
+
+  fetchTransaction();
+
+}, [id]);
   const { id } = useParams();
 
-  const [status, setStatus] = useState("Flagged");
+  const [transaction, setTransaction] =
+  useState(null);
+
+const [status, setStatus] =
+  useState("Flagged");
+
   const [message, setMessage] = useState("");
 
   const handleApprove = () => {
@@ -24,6 +65,14 @@ const TransactionDetails = () => {
     setMessage("🚫 Transaction blocked due to high risk.");
   };
 
+  if (!transaction) {
+
+  return (
+    <div>
+      Loading...
+    </div>
+  );
+}
   return (
     <div className="details-layout">
       <Sidebar />
@@ -44,7 +93,9 @@ const TransactionDetails = () => {
 
             <div className="info-row">
               <span>Customer</span>
-              <strong>Michael Smith</strong>
+              <strong>
+  {transaction.recipient}
+</strong>
             </div>
 
             <div className="info-row">
@@ -54,7 +105,9 @@ const TransactionDetails = () => {
 
             <div className="info-row">
               <span>Amount</span>
-              <strong>$12,500</strong>
+              <strong>
+  ₹{transaction.amount}
+</strong>
             </div>
 
             <div className="info-row">
@@ -64,7 +117,9 @@ const TransactionDetails = () => {
 
             <div className="info-row">
               <span>Date & Time</span>
-              <strong>May 18, 2024 10:24 AM</strong>
+              <strong>{new Date(
+  transaction.created_at
+).toLocaleString()}</strong>
             </div>
 
             <div className="info-row">
@@ -106,7 +161,9 @@ const TransactionDetails = () => {
           <div className="risk-card">
             <h3>Risk Score</h3>
 
-            <div className="risk-circle">85</div>
+            <div className="risk-circle">
+  {transaction.risk_score}
+</div>
 
             <p className="risk-text">High Risk</p>
 
