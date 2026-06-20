@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
 import "./Alerts.css";
+import API from "../api/axios";
 
 const initialAlerts = [
   {
@@ -43,7 +44,40 @@ const initialAlerts = [
 ];
 
 export default function Alerts() {
-  const [alerts, setAlerts] = useState(initialAlerts);
+
+  useEffect(() => {
+  const fetchAlerts = async () => {
+    try {
+      const response = await API.get(
+        "dashboard/alerts/"
+      );
+
+      const formattedAlerts =
+        response.data.map((alert) => ({
+          id: `ALT-${alert.id}`,
+          type: alert.reason,
+          transaction: "N/A",
+          customer: alert.user,
+          risk: alert.risk_score,
+          date: new Date(
+            alert.created_at
+          ).toLocaleDateString(),
+          status: "New",
+        }));
+
+      setAlerts(formattedAlerts);
+
+    } catch (error) {
+      console.error(
+        "Alerts API Error:",
+        error
+      );
+    }
+  };
+
+  fetchAlerts();
+}, []);
+  const [alerts, setAlerts] = useState([]);
   const [activeTab, setActiveTab] = useState("All");
   const [search, setSearch] = useState("");
   const [selectedAlert, setSelectedAlert] = useState(null);
