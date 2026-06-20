@@ -1,47 +1,59 @@
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import API from "../api/axios";
 import "./Transactions.css";
 
-const transactions = [
-  {
-    id: "TXN-984573",
-    customer: "Michael Smith",
-    amount: "$12,500",
-    risk: 95,
-    status: "Flagged",
-    date: "May 18, 2024",
-    location: "New York, US",
-  },
-  {
-    id: "TXN-984572",
-    customer: "Sarah Johnson",
-    amount: "$7,850",
-    risk: 78,
-    status: "Review",
-    date: "May 18, 2024",
-    location: "London, UK",
-  },
-  {
-    id: "TXN-984571",
-    customer: "David Brown",
-    amount: "$3,200",
-    risk: 45,
-    status: "Review",
-    date: "May 18, 2024",
-    location: "Berlin, Germany",
-  },
-  {
-    id: "TXN-984570",
-    customer: "Emily Davis",
-    amount: "$15,000",
-    risk: 15,
-    status: "Clear",
-    date: "May 18, 2024",
-    location: "Sydney, Australia",
-  },
-];
+
 
 export default function Transactions() {
+
+  const [transactions, setTransactions] = useState([]);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+  const fetchTransactions = async () => {
+    try {
+      const response = await API.get(
+        "transactions/history/"
+      );
+
+      const formattedTransactions =
+        response.data.map((txn) => ({
+          id: `TXN-${txn.id}`,
+          customer: txn.user || "Unknown",
+          amount: txn.amount,
+          risk: txn.risk_score,
+          status: txn.status,
+          date: new Date(
+            txn.created_at
+          ).toLocaleString(),
+          location: "N/A",
+        }));
+
+      setTransactions(
+        formattedTransactions
+      );
+    } catch (error) {
+      console.error(
+        "Transaction API Error:",
+        error
+      );
+    }
+  };
+
+  fetchTransactions();
+}, []);
+
+ const filteredTransactions =
+  transactions.filter((txn) =>
+    txn.id
+      .toLowerCase()
+      .includes(search.toLowerCase()) ||
+    txn.customer
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
   return (
     <div className="transactions-layout">
       <Sidebar />
@@ -63,9 +75,13 @@ export default function Transactions() {
 
         <div className="search-box">
           <input
-            type="text"
-            placeholder="Search transaction ID, customer..."
-          />
+  type="text"
+  placeholder="Search transaction ID, customer..."
+  value={search}
+  onChange={(e) =>
+    setSearch(e.target.value)
+  }
+/>
         </div>
 
         <div className="table-wrapper">
@@ -83,7 +99,7 @@ export default function Transactions() {
             </thead>
 
             <tbody>
-              {transactions.map((txn) => (
+              {filteredTransactions.map((txn) => (
                 <tr key={txn.id}>
                   <td>
                        <Link
@@ -112,7 +128,11 @@ export default function Transactions() {
 
                   <td>
                     <span
-                      className={`status ${txn.status.toLowerCase()}`}
+                      className={`status ${
+  txn.status
+    ? txn.status.toLowerCase()
+    : ""
+}`}
                     >
                       {txn.status}
                     </span>
