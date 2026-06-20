@@ -1,0 +1,454 @@
+.alerts-layout 
+{
+  display: flex;
+  min-height: 100vh;
+  background: #050d18;
+  color: white;
+}
+
+.alerts-content 
+{
+  flex: 1;
+  padding: 20px;
+}
+
+.alerts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  background: #0a1628;
+  border: 1px solid #16263a;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.action-btn:hover {
+  border-color: #00d9a6;
+}
+
+/* TABS */
+
+.alert-tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background: #0a1628;
+  border: 1px solid #16263a;
+  color: #8fa4c7;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: rgba(0, 217, 166, 0.15);
+  color: #00d9a6;
+  border-color: #00d9a6;
+}
+
+/* TABLE */
+
+.table-wrapper {
+  background: #0a1628;
+  border: 1px solid #16263a;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #091322;
+}
+
+th {
+  color: #8fa4c7;
+  text-align: left;
+  padding: 16px;
+  font-size: 14px;
+}
+
+td {
+  padding: 16px;
+  border-top: 1px solid #16263a;
+}
+
+tr:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.txn-id {
+  color: #00d9a6;
+  font-weight: 600;
+}
+
+.risk-high {
+  color: #ff5252;
+  font-weight: bold;
+}
+
+.risk-medium {
+  color: #ffb020;
+  font-weight: bold;
+}
+
+.risk-low {
+  color: #00d9a6;
+  font-weight: bold;
+}
+
+/* STATUS */
+
+.status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.new {
+  background: rgba(255,82,82,0.15);
+  color: #ff5252;
+}
+
+.investigating {
+  background: rgba(255,176,32,0.15);
+  color: #ffb020;
+}
+
+.review {
+  background: rgba(59,130,246,0.15);
+  color: #3b82f6;
+}
+
+.closed {
+  background: rgba(0,217,166,0.15);
+  color: #00d9a6;
+}
+
+/* PAGINATION */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+}
+
+.pagination button {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #16263a;
+  background: #091322;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.active-page {
+  background: #00d9a6 !important;
+  color: black !important;
+}
+
+.search-box {
+  width: 100%;
+  margin: 20px 0;
+  padding: 12px;
+  background: #081425;
+  border: 1px solid #13243a;
+  border-radius: 10px;
+  color: white;
+}
+
+.action-group {
+  display: flex;
+  gap: 8px;
+}
+
+.action-group button {
+  background: #0f2238;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.action-group button:hover {
+  background: #1a3554;
+}
+
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  background: #081425;
+  border: 1px solid #13243a;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.summary-card h3 {
+  font-size: 30px;
+  color: #00e5b0;
+}
+
+.search-box {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #081425;
+  border: 1px solid #13243a;
+  color: white;
+}
+
+.alert-link,
+.txn-link {
+  color: #00e5b0;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.alert-link:hover,
+.txn-link:hover {
+  text-decoration: underline;
+}
+
+.severity {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.critical {
+  background: rgba(255,0,0,.15);
+  color: #ff4d4f;
+}
+
+.high {
+  background: rgba(255,165,0,.15);
+  color: orange;
+}
+
+.medium {
+  background: rgba(255,255,0,.15);
+  color: gold;
+}
+
+.low {
+  background: rgba(0,229,176,.15);
+  color: #00e5b0;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 500px;
+  background: #081425;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid #13243a;
+}
+
+.close-modal {
+  margin-top: 20px;
+  background: #00e5b0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Alert ID */
+
+.alert-link {
+  color: #00e5b0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.alert-link:hover {
+  color: #00ffd0;
+  text-decoration: underline;
+}
+
+/* Transaction ID Link */
+
+.txn-link {
+  color: #4da6ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.txn-link:hover {
+  color: #80c1ff;
+  text-decoration: underline;
+}
+
+/* Click Animation */
+
+.alert-link:active,
+.txn-link:active {
+  transform: scale(0.97);
+}
+
+/* Optional: Make row highlight when hovering */
+
+tbody tr {
+  transition: background 0.3s ease;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Modal Background */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Card */
+
+.modal {
+  width: 550px;
+  max-width: 90%;
+  background: #081425;
+  border: 1px solid #13243a;
+  border-radius: 16px;
+  padding: 25px;
+  color: white;
+  box-shadow: 0 0 30px rgba(0, 229, 176, 0.15);
+  animation: modalOpen 0.3s ease;
+}
+
+/* Animation */
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+
+.modal h2 {
+  margin-bottom: 20px;
+  color: #00e5b0;
+  border-bottom: 1px solid #13243a;
+  padding-bottom: 10px;
+}
+
+/* Details */
+
+.modal p {
+  margin: 12px 0;
+  color: #d5dbe5;
+  font-size: 15px;
+}
+
+.modal strong {
+  color: white;
+}
+
+/* Risk Factors */
+
+.modal h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #ffb020;
+}
+
+.modal ul {
+  padding-left: 20px;
+}
+
+.modal li {
+  margin-bottom: 10px;
+  color: #b8c2d1;
+}
+
+/* Risk Factor Badges */
+
+.modal li::marker {
+  color: #ff4d4f;
+}
+
+/* Close Button */
+
+.close-modal {
+  margin-top: 25px;
+  width: 100%;
+  padding: 12px;
+  background: #00e5b0;
+  color: #04101f;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-modal:hover {
+  background: #00c89b;
+}
+
+/* Optional Alert Risk Box */
+
+.alert-risk-box {
+  margin-top: 15px;
+  background: rgba(255, 77, 79, 0.1);
+  border: 1px solid rgba(255, 77, 79, 0.3);
+  border-radius: 10px;
+  padding: 12px;
+  color: #ff6b6b;
+  font-weight: 600;
+}
