@@ -1,4 +1,5 @@
 import Sidebar from "../components/Sidebar";
+import { Link } from "react-router-dom";
 import "./Transactions.css";
 
 const transactions = [
@@ -84,7 +85,14 @@ export default function Transactions() {
             <tbody>
               {transactions.map((txn) => (
                 <tr key={txn.id}>
-                  <td className="txn-id">{txn.id}</td>
+                  <td>
+                       <Link
+                          to={`/transactions/${txn.id}`}
+                            className="txn-id"
+                               >
+                            {txn.id}
+                       </Link>
+                   </td>
 
                   <td>{txn.customer}</td>
 

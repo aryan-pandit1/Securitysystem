@@ -1,0 +1,184 @@
+.details-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #050d18;
+  color: white;
+}
+
+.details-content {
+  flex: 1;
+  padding: 25px;
+}
+
+.details-content h1 {
+  margin-bottom: 25px;
+}
+
+/* GRID */
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+/* CARDS */
+
+.overview-card,
+.risk-card,
+.timeline-card,
+.notes-card {
+  background: #081425;
+  border: 1px solid #13243a;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+/* OVERVIEW */
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #13243a;
+}
+
+.info-row span {
+  color: #9db0c8;
+}
+
+.flagged {
+  color: #ff4d4f;
+}
+
+/* RISK */
+
+.risk-card {
+  text-align: center;
+}
+
+.risk-circle {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 12px solid #ff4d4f;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.risk-text {
+  color: #ff4d4f;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.risk-factors {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.risk-factors ul {
+  padding-left: 20px;
+}
+
+.risk-factors li {
+  margin-bottom: 10px;
+}
+
+/* TIMELINE */
+
+.timeline-card {
+  margin-top: 20px;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.timeline-step {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #0d1c30;
+  border: 1px solid #13243a;
+}
+
+.timeline-step.active {
+  background: rgba(0, 229, 176, 0.15);
+  color: #00e5b0;
+  border-color: #00e5b0;
+}
+
+/* NOTES */
+
+.notes-card {
+  margin-top: 20px;
+}
+
+/* BUTTONS */
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.approve-btn,
+.review-btn,
+.block-btn {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.approve-btn {
+  background: #00e5b0;
+  color: black;
+}
+
+.review-btn {
+  background: #ffb020;
+  color: black;
+}
+
+.block-btn {
+  background: #ff4d4f;
+  color: white;
+}
+
+.approved {
+  color: #00e676;
+  font-weight: bold;
+}
+
+.blocked {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.verification {
+  color: #ffb020;
+  font-weight: bold;
+}
+
+.flagged {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+
+.action-message {
+  margin-top: 20px;
+  background: #081425;
+  border: 1px solid #13243a;
+  padding: 16px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 500;
+}
